@@ -7,6 +7,7 @@ class Zoo:
         self.location = location
         Zoo.all.append( self )
 
+    # should return all the animals that a specific instance of a zoo has.
     @property
     def animals( self ):
         # a_new_list = []
