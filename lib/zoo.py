@@ -54,3 +54,11 @@ class Zoo:
 
     def find_by_species(self, spec):
         return [animal for animal in self.animals if animal.species == spec]
+
+
+"""
+    def __init__( self, name, location ):
+        self.name = name
+        self.location = location
+        Zoo.all.append( self )
+"""

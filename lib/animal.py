@@ -1,4 +1,4 @@
-from lib.validators import validate_str, validate_int, validate_dict
+from lib.validators import validate_str, validate_int, validate_zoo
 
 
 class Animal:
@@ -27,10 +27,10 @@ class Animal:
                 "species": validate_str,
                 "weight": validate_int,
                 "nickname": validate_str,
-                "zoo": validate_dict,
+                "zoo": validate_zoo,
             }
 
-            if key in validation_func and validation_func.get(key)(value):
+            if key in validation_func and validation_func.get(key):
                 setattr(self, f"_{key}", value)
 
         setattr(type(self), key, property(getter, setter))
@@ -38,3 +38,13 @@ class Animal:
     @classmethod
     def find_by_species(cls, spec):
         return [anml.nickname for anml in cls.all if anml.species == spec]
+
+
+"""
+    def __init__( self, species, weight, nickname, zoo_instance ):
+        self.species = species
+        self.weight = weight
+        self.nickname = nickname
+        self.zoo = zoo_instance
+        Animal.all.append( self )
+"""
